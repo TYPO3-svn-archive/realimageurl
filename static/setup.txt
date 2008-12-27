@@ -1,0 +1,32 @@
+
+plugin.realimageurl {
+	# altText, titleText, caption, longdescURL
+	#
+	# ts_titleText, ts_titleText, ts_longdesc
+	# ts_imgOps, ts_imgText
+	#
+	# txdam_title, txdam_category, txdam_file_name, txdam_file_dl_path, txdam_file_path
+	# txdam_creator, txdam_keywords, txdam_description, txdam_alt_text
+	# txdam_caption, txdam_abstract, txdam_publisher, txdam_copyright
+	ifBlank.data = field:ts_altText
+	ifBlank.ifBlank.data = field:ts_titleText
+	ifBlank.ifBlank.ifBlank.data = field:txdam_title
+	ifBlank.ifBlank.ifBlank.ifBlank.data = field:txdam_description
+	ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.data = field:txdam_alt_text
+	ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.data = field:txdam_file_dl_path
+	ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.data = field:txdam_file_path
+	ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.data = field:altText
+	ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.data = field:titleText
+	ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.ifBlank.data = field:origFile
+
+	characterCoding = {$plugin.realimageurl.characterCoding}
+	textTransform = {$plugin.realimageurl.textTransform}
+	textTransform.function = {$plugin.realimageurl.textTransform.function}
+	stripSpecial = {$plugin.realimageurl.stripSpecial}
+	stripSpecial.substitute = {$plugin.realimageurl.stripSpecial.substitute}
+	stripSpecial.separator = {$plugin.realimageurl.stripSpecial.separator}
+	includeContext = {$plugin.realimageurl.includeContext}
+	includeContext.reference = {$plugin.realimageurl.includeContext.reference}
+	includeContext.linefield = {$plugin.realimageurl.includeContext.linefield}
+	collisionHandling = {$plugin.realimageurl.collisionHandling}
+}

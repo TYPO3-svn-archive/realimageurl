@@ -1,0 +1,15 @@
+#******************************************************
+# Including library for processing of custom attribute "txdam" on img tag
+#******************************************************
+includeLibs.ux_dam_tsfeimgtag = EXT:realimageurl/ext/dam/binding/imgtag/class.ux_dam_tsfeimgtag.php
+
+lib.parseFunc_RTE {
+	tags.img = TEXT
+	tags.img {
+		current = 1
+		preUserFunc = ux_tx_dam_tsfeimgtag->renderTxdamAttribute
+	}
+	nonTypoTagStdWrap.HTMLparser.tags.img.fixAttrib {
+		txdam.unset = 1
+	}
+}

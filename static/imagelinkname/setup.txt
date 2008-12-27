@@ -1,0 +1,31 @@
+
+# *****************
+# CType: image
+# *****************
+tt_content.image.20 {
+	1 {
+		# altText, titleText, caption, longdescURL
+		imageLinkName < .altText
+		imageLinkName {
+			characterCoding = {$plugin.realimageurl.characterCoding}
+
+			# lowercase, uppercase, camelcase
+			textTransform = {$plugin.realimageurl.textTransform}
+			textTransform.function = {$plugin.realimageurl.textTransform.function}
+
+			stripSpecial = {$plugin.realimageurl.stripSpecial}
+			stripSpecial.substitute = {$plugin.realimageurl.stripSpecial.substitute}
+			stripSpecial.separator = {$plugin.realimageurl.stripSpecial.separator}
+
+			includeContext = {$plugin.realimageurl.includeContext}
+			includeContext.reference = {$plugin.realimageurl.includeContext.reference}
+			includeContext.linefield = {$plugin.realimageurl.includeContext.linefield}
+
+			# shorthash, hash, integer, date
+			collisionHandling = {$plugin.realimageurl.collisionHandling}
+
+			# for example (or any other stdWrap)
+			# customContext.dataWrap = {}/{}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+###
+# This are the default TS-constants for realimageurl
+##
+
+plugin.realimageurl {
+
+    # cat=realimageurl/typo/10; type=options[ASCII,latin1,utf8,idna]; label= Character-encoding: encode the name of the image into this char-set
+  characterCoding = latin1
+
+    # cat=realimageurl/typo/20; type=boolean; label= Text-transform: transform the text before further processing
+  textTransform = 1
+    # cat=realimageurl/typo/30; type=options[lowercase,uppercase,camelcase]; label= Text-transform function: apply this function
+  textTransform.function = lowercase
+
+    # cat=realimageurl/typo/40; type=boolean; label= Strip special characters: apply substitution for all characters which would become special under the configured character-encoding (latin1, utf8, idna)
+  stripSpecial = 1
+    # cat=realimageurl/typo/50; type=text; label= Strip special characters substitute: replacement for the stripped special characters
+  stripSpecial.substitute = -
+    # cat=realimageurl/typo/55; type=text; label= Strip special characters separator: replacement for spaces and other separators
+  stripSpecial.separator = _
+}
+
+plugin.realimageurl {
+    # cat=realimageurl/links/60; type=boolean; label= Context-inclusion: include a context into the picture path
+  includeContext = 1
+    # cat=realimageurl/links/70; type=options[realurl,rootline,recordline,custom]; label= Context-inclusion reference: define the context taken into consideration
+  includeContext.reference = realurl
+    # cat=realimageurl/links/75; type=options[title,alias,nav_title,tx_realurl_pathsegment]; label= Context-inclusion reference field: if the context contains rootline-walks, construct the context out of this field
+  includeContext.linefield = title
+}
+
+plugin.realimageurl {
+    # cat=realimageurl/file/80; type=options[shorthash,hash,integer,date,be-creative]; label= Conflict-resolution: postfix generation to prevent collisions, which may even occur in cases of context-inclusion
+  collisionHandling = hash
+}

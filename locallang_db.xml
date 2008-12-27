@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'realimageurl'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_realimageurl_requests">Incoming requests for images</label>
+			<label index="tx_realimageurl_requests.parameter_hash">IO-Hash (MD5)</label>
+			<label index="tx_realimageurl_requests.parameter_sent">Parameters sent</label>
+			<label index="tx_realimageurl_requests.parameter_exec">Command generated</label>
+			<label index="tx_realimageurl_requests.parameter_info">Information rendered</label>
+			<label index="tx_realimageurl_requests.location">Location of the generated file</label>
+			<label index="tx_realimageurl_requests.referenced">Referenced responses</label>
+			<label index="tx_realimageurl_responses">Outgoing responses for images</label>
+			<label index="tx_realimageurl_responses.parameter_hash">IO-Hash (MD5)</label>
+			<label index="tx_realimageurl_responses.parameter_sent">Parameters sent</label>
+			<label index="tx_realimageurl_responses.parameter_refr">TS generated</label>
+			<label index="tx_realimageurl_responses.parameter_info">Information rendered</label>
+			<label index="tx_realimageurl_responses.location">Generated URL</label>
+			<label index="tx_realimageurl_responses.descr">Assigned description</label>
+			<label index="tx_realimageurl_responses.fid">Processed File-Cache</label>
+			<label index="tx_realimageurl_responses.pid">Page</label>
+			<label index="tx_realimageurl_responses.record">Content-Element</label>
+		</languageKey>
+	</data>
+</T3locallang>

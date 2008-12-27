@@ -1,0 +1,37 @@
+
+### Begin: Rewrite stuff ###
+
+# Enable URL rewriting
+RewriteEngine On
+
+# If you use the RealUrl extension, then you'll have to enable the next line.
+# You will have to change this path if your TYPO3 installation is located
+# in a subdirectory of the website root.
+#
+# If you place this in httpd.conf, you cannot use this directive in any case!
+RewriteBase /
+
+################################################################################
+# If the file/symlink/directory does exist inside the mapping structure => Serve it
+# this is the fragment to enable realimageurl-mapping
+#
+# it may be nessessary to replace DOCUMENT_ROOT by the absolute path to your
+# TYPO3 installation, if DOCUMENT_ROOT points to non-followed sym-links for example
+RewriteCond %{DOCUMENT_ROOT}/typo3temp/imap/map%{REQUEST_URI} -f  [OR]
+RewriteCond %{DOCUMENT_ROOT}/typo3temp/imap/map%{REQUEST_URI} -l
+RewriteRule ^(.*)$ typo3temp/imap/map/$1 [L]
+
+################################################################################
+# If the file/symlink/directory does exist inside the mapping structure => Serve it
+# this is the fragment to disable outofplace-images
+RewriteCond %{REQUEST_FILENAME} !.*imap/map.*
+# Use either of these three choices
+#
+# produce a 403 "forbiddden"
+RewriteRule ^(typo3temp|uploads)/.*\.(jpg|png|gif)$ - [F]
+# produce a 404 "not found"
+#RewriteRule ^(typo3temp|uploads)/.*\.(jpg|png|gif)$ not-found [L]
+# produce a 410 "gone"
+#RewriteRule ^(typo3temp|uploads)/.*\.(jpg|png|gif)$ - [G]
+
+################################################################################

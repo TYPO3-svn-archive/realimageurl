@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Real Image-URL Labels (clickmenus, list module, info boxes, tool-tips, file handling, editing, etc.)</description>
+		<type>module</type>
+		<fileId>EXT:realimageurl/locallang.xml</fileId>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="rm.clearCacheMenu_imageurls">Clear image-url cache</label>
+			<label index="rm.clearCacheMenu_imagesall">Clear the entire image cache</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="rm.clearCacheMenu_imageurls">BildURL-Cache löschen</label>
+			<label index="rm.clearCacheMenu_imagesall">Alle Bild-Caches löschen</label>
+		</languageKey>
+	</data>
+</T3locallang>

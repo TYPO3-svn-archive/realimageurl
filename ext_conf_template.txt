@@ -1,0 +1,10 @@
+  # cat=basic/enable; type=boolean; label=List-Module: Enable exposure of tracked images as TCA-rows.
+list_module_tca = 0
+  # cat=basic/enable; type=boolean; label=URL-rewriting: Enable stripping of "typo3temp/imap/map/", and delegate internal URL-rewriting to mod_rewrite.
+mod_rewrite = 0
+  # cat=basic/enable; type=boolean; label=Images: Enable progressive saving for PNGs
+progressive_pngs = 1
+  # cat=basic/enable; type=boolean; label=Images: Enable progressive saving for JPGs
+progressive_jpgs = 1
+  # cat=basic/enable; type=boolean; label=Images: Enable progressive saving for GIFs
+progressive_gifs = 1
