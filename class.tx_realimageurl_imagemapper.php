@@ -401,6 +401,46 @@ class tx_realimageurl_imagemapper {
 	}
 
 	/* -------------------------------------------------------------------------------------- */
+	function handleCollision($origin, $subject, $hash) {
+		if (!@file_exists($subject)) {
+			return $subject;
+		}
+
+		preg_match('/(\.[a-z][a-z][a-z]?[a-z]?)$/', $subject, $extension);
+		$subject = preg_replace('/(\.[a-z][a-z][a-z]?[a-z]?)$/', '', $subject);
+
+		switch ($GLOBALS['TSFE']->tmpl->setup['plugin.']['realimageurl.']['collisionHandling']) {
+			case 'be-creative':
+			case 'date':
+				if (($col = @filemtime($origin))) {
+					$col = date("Ymd-His", $col);
+					if (!@file_exists($subject . '-' . $col . $extension[1])) {
+						break;
+					}
+				}
+			case 'shorthash':
+				$col = substr($hash, 0, 4);
+				if (!@file_exists($subject . '-' . $col . $extension[1])) {
+					break;
+				}
+			case 'hash':
+				$col = $hash;
+				if (!@file_exists($subject . '-' . $col . $extension[1])) {
+					break;
+				}
+			case 'integer':
+			default:
+				$col = 1;
+				while (@file_exists($subject . '-' . $col . $extension[1])) {
+					$col++;
+				}
+				break;
+		}
+
+		return $subject . '-' . $col . $extension[1];
+	}
+
+	/* -------------------------------------------------------------------------------------- */
 
 	/**
 	 * Clears the cached data for requests
@@ -537,6 +577,8 @@ class tx_realimageurl_imagemapper {
 			else
 				$output = $input;
 
+		//	$output = $this->handleCollision($input, $output, $hash);
+
 			if ($info['src']) $info['src'] = $output;
 			else if ($info[3]) $info[3] = $output;
 
@@ -664,6 +706,8 @@ class tx_realimageurl_imagemapper {
 				$output = str_replace(PATH_site, '', $output);
 			else
 				$output = $input;
+
+			$output = $this->handleCollision($input, $output, $hash);
 
 			if ($info['src']) $info['src'] = $output;
 			else if ($info[3]) $info[3] = $output;

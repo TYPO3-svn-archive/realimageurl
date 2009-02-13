@@ -38,7 +38,7 @@ assignTemplateClass('typo3/classes/class.clearcachemenu.php'                    
 //	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['GLOBAL']['softRefParser']['images'] =
 //		t3lib_extMgm::extPath($_EXTKEY) . 'class.ux_t3lib_softrefproc.php:&ux_t3lib_softrefproc';
 
-if ($_EXTCONF['enable.']['mod_rewrite']) {
+if ($_EXTCONF['mod_rewrite']) {
 	$TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'][] =
 		t3lib_extMgm::extPath($_EXTKEY) . 'class.user_realimageurl_imagemapper_post.php:&user_realimageurl_imagemapper_post->killLeadingMap';
 }

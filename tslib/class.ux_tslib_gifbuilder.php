@@ -76,6 +76,18 @@ class ux_tslib_gifBuilder extends tslib_gifBuilder {
 			if (!preg_match('/-interlace/', $this->cmds['png']))
 				$this->cmds['png'] .= ' -interlace';
 		}
+
+		/* strip meta-data */
+		if ($this->conf['strip']) {
+			if (!preg_match('/-strip/', $this->cmds['jpg']))
+				$this->cmds['jpg'] .= ' -strip';
+			if (!preg_match('/-strip/', $this->cmds['jpeg']))
+				$this->cmds['jpeg'] .= ' -strip';
+			if (!preg_match('/-strip/', $this->cmds['gif']))
+				$this->cmds['gif'] .= ' -strip';
+			if (!preg_match('/-strip/', $this->cmds['png']))
+				$this->cmds['png'] .= ' -strip';
+		}
 	}
 
 	function getProgram($sKeyArray) {
